@@ -4,9 +4,9 @@ const config = require('./config')
 
 function authorizeUser(req, res, next) {
     const url = req.url
-    if (url == '/user/signin' || url == '/user/signup') 
+    if (url == '/users/signin' || url == '/users/signup') 
         next()
-    else if (url == '/food' && req.method == 'GET')
+    else if (url == '/blog' && req.method == 'GET')
         next()
     else {
         const token = req.headers.token
