@@ -4,7 +4,7 @@ const config = require('./config')
 
 function authorizeUser(req, res, next) {
     const url = req.url
-    if (url == '/users/signin' || url == '/users/signup') 
+    if (url == '/user/signin' || url == '/user/signup') 
         next()
     else if (url == '/blog' && req.method == 'GET')
         next()
@@ -13,7 +13,7 @@ function authorizeUser(req, res, next) {
         if (token) {
             try {
                 const payload = jwt.verify(token, config.SECRET)
-                req.headers.user_id = payload.user_id
+                req.headers.uid = payload.uid
                 next()
             } catch (ex) {
                 res.send(result.createResult('Invalid Token'))

@@ -20,7 +20,7 @@ router.post('/signin', (req, res)=>{
             bcrypt.compare(password, data[0].password, (err, password)=>{
                 if(passwordStatus) {
                     const payload = {
-                        user_id: data[0].user_id,
+                        uid: data[0].user_id,
                     }
                     const token = jwt.sign(payload, config.SECRET)
                     const users = {   
