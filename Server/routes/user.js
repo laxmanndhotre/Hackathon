@@ -41,7 +41,7 @@ router.post('/signin', (req, res)=>{
 
 router.post('/signup', (req, res)=>{
     const {fullname, email, password, phone_no} = req.body
-    const sql = `INSER INTO users(fullname, email, password, phone_no, now()) VALUES (?, ?, ?, ?)`
+    const sql = `INSERT INTO users(fullname, email, password, phone_no, created_time) VALUES (?, ?, ?, ?, now())`
     bcrypt.hash(password, config.SALT_ROUND, (err, hashedPassword) => {
         if(hashedPassword) {
             pool.query(sql, [fullname, email, hashedPassword, phone_no], (err, data)=> {
