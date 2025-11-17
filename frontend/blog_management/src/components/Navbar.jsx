@@ -25,7 +25,7 @@ function Navbar() {
     return (
         <nav className="custom-navbar"> 
             <div className="navbar-container-links">
-                <Link className="navbar-brand-custom" to="/home">
+                <Link className="navbar-brand-custom" to="search">
                       <h2>BlogSite</h2></Link>
                 
                 <div className="navbar-nav-custom">

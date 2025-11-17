@@ -18,7 +18,7 @@ function Login() {
         // console.log(password)
         try {
             const result = await loginUser(email, password)
-            console.log(result.success)
+            // console.log(result)
             if (result.status == 'success') {
                 window.sessionStorage.setItem('token', result.data.token)
                 setUser({
@@ -42,11 +42,10 @@ function Login() {
                     status="error" 
                     />
                 ), { duration: 5000 });
-                console.log(result.error)
             }
         }
         catch (ex) {
-            console.log(ex)
+            console.log("exception: "+ex)
         }
     }
 
