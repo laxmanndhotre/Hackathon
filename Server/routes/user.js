@@ -27,9 +27,7 @@ router.post('/signin', (req, res)=>{
                         token,
                         fullname: data[0].fullname,
                         email: data[0].email,
-                        password: data[0].password
                     }
-                    console.log(users.password)
                     res.send(result.createResult(null, users))
                 }
                 else
@@ -52,5 +50,7 @@ router.post('/signup', (req, res)=>{
             res.send(result.createResult(err))
     })
 })
+
+router.get
 
 module.exports = router
