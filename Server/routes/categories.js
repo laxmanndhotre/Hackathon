@@ -24,6 +24,14 @@ router.get('/', (req, res)=>{
     })
 })
 
+router.put('/', (req, res)=> {
+    const { category_id, title, c_description } = req.body
+    const sql = `UPDATE Categories SET title = ?, c_description = ? WHERE category_id = ?`
+    pool.query(sql, [title, c_description, category_id], (err, data)=> {
+        res.send(result.createResult(err, data))
+    })
+})
+
 router.delete('/', (req, res)=>{
     const { title } = req.body
     const sql = `DELETE FROM categories WHERE title = ?`
