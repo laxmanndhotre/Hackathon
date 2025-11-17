@@ -20,8 +20,7 @@ function Login() {
                 window.sessionStorage.setItem('token', result.data.token)
                 setUser({
                     name: result.data.fullname,
-                    email: result.data.email,
-                    mobile: result.data.mobile
+                    email: result.data.email
                 })
                 toast.success('Login Successful')
                 navigate('/home/food-list')
