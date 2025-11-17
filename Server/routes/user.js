@@ -23,7 +23,8 @@ router.post('/signin', (req, res)=>{
                         uid: data[0].user_id,
                     }
                     const token = jwt.sign(payload, config.SECRET)
-                    const users = {   
+                    const users = {
+                        token,
                         fullname: data[0].fullname,
                         email: data[0].email
                     }

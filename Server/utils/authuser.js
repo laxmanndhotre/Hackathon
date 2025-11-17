@@ -3,6 +3,7 @@ const result = require('./result')
 const config = require('./config')
 
 function authorizeUser(req, res, next) {
+
     const url = req.url
     if (url == '/user/signin' || url == '/user/signup') 
         next()
