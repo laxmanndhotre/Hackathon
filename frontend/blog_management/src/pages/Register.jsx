@@ -9,37 +9,47 @@ function Register() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [mobile, setMobile] = useState('')
-    const [errors, setErrors] = useState({})
+    // const [errors, setErrors] = useState({})
 
-    const validateForm = () => {
-        let formErrors = {}
-        if (!name.trim()) {
-            formErrors.name = 'Name is required'
-        }
-        if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
-            formErrors.email = 'Valid email is required'
-        }
-        // if (!password || password.length < 8 || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/.test(password)) {
-        //     formErrors.password = 'Password must be 8-20 characters long, contain letters and numbers, and no spaces/special characters.'
-        // }
-        if (!mobile || !/^\d{10}$/.test(mobile)) {
-            formErrors.mobile = 'Mobile number must be 10 digits'
-        }
-        setErrors(formErrors)
-        return Object.keys(formErrors).length === 0
-    }
+    // const validateForm = () => {
+    //             console.log("val")
+
+    //     let formErrors = {}
+    //     if (!name.trim()) {
+    //                 console.log(!name.trim)
+
+    //         formErrors.name = 'Name is required'
+    //     }
+    //     if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
+    //         formErrors.email = 'Valid email is required'
+    //     }
+    //     // if (!password || password.length < 8 || !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/.test(password)) {
+    //     //     formErrors.password = 'Password must be 8-20 characters long, contain letters and numbers, and no spaces/special characters.'
+    //     // }
+    //     if (!mobile || !/^\d{10}$/.test(mobile)) {
+    //         formErrors.mobile = 'Mobile number must be 10 digits'
+    //     }
+    //     setErrors(formErrors)
+    //     return Object.keys(formErrors).length === 0
+    // }
     const signup = async () => {
-        if (!validateForm()) {
-            toast.error('Please fix the errors in the form')
-            return
-        }
+        // console.log("signup")
+        // if (!validateForm()) {
+        //     console.log("validation")
+        //     toast.error('Please fix the errors in the form')
+        //     console.log("error")
+        //     return 
+        // }
         const result = await registerUser(name, email, password, mobile)
         if (result.status == 'success') {
             toast.success('Signup Successful')
             navigate('/')
         }
-        else
-            toast.error(result.error)
+        else{
+            const errorMessage = result.error.sqlMessage || result.error.message || JSON.stringify(result.error) || 'An unexpected error occurred';
+            toast.error(errorMessage)
+        }
+
     }
     return (
         <div className='container w-75'>

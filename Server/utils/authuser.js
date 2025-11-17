@@ -13,10 +13,13 @@ function authorizeUser(req, res, next) {
         const token = req.headers.token
         if (token) {
             try {
+                console.log("test1")
                 const payload = jwt.verify(token, config.SECRET)
                 req.headers.uid = payload.uid
                 next()
             } catch (ex) {
+                
+                console.log("test2")
                 res.send(result.createResult('Invalid Token'))
             }
         } else

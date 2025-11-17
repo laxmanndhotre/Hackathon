@@ -1,0 +1,80 @@
+/* Navbar.css */
+
+:root {
+  --md-sys-color-primary: #6750A4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-surface-container: #f7e7ff;
+  --md-sys-color-on-surface: #1D1B20;
+  --md-sys-color-primary-container: #dda7f5;
+  --md-sys-color-on-primary-container: #22005D;
+  --md-sys-color-on-surface-rgb: 176, 134, 194;
+  --md-sys-color-primary-rgb: 103, 80, 164;
+}
+
+.custom-navbar {
+  height: 80px; 
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.1);  */
+}
+
+.navbar-container-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand-custom {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface);
+  margin-right: 48px;
+}
+
+.navbar-nav-custom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link-custom {
+  color: var(--md-sys-color-on-surface);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-link-custom:hover {
+  background-color: rgba(var(--md-sys-color-on-surface-rgb), 0.2);
+}
+
+.nav-link-custom.active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.nav-link-custom.active:hover {
+   background-color: var(--md-sys-color-primary-container); 
+}
+
+.logout-button {
+    color: var(--md-sys-color-primary);
+}
+
+.logout-button:hover {
+    background-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+}
+
