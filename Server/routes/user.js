@@ -17,7 +17,7 @@ router.post('/signin', (req, res)=>{
         else if (data.length == 0)
             res.send(result.createResult("Invalid Email"))
         else{
-            bcrypt.compare(password, data[0].password, (err, password)=>{
+            bcrypt.compare(password, data[0].password, (err, passwordStatus)=>{
                 if(passwordStatus) {
                     const payload = {
                         uid: data[0].user_id,
@@ -26,8 +26,10 @@ router.post('/signin', (req, res)=>{
                     const users = {
                         token,
                         fullname: data[0].fullname,
-                        email: data[0].email
+                        email: data[0].email,
+                        password: data[0].password
                     }
+                    console.log(users.password)
                     res.send(result.createResult(null, users))
                 }
                 else
