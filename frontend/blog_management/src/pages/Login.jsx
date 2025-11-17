@@ -19,7 +19,7 @@ function Login() {
             if (result.status == 'success') {
                 window.sessionStorage.setItem('token', result.data.token)
                 setUser({
-                    name: result.data.name,
+                    name: result.data.fullname,
                     email: result.data.email,
                     mobile: result.data.mobile
                 })
