@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const authorizeUser = require('./utils/authuser')
-const userRouter = require('./routes/user')
+const userRouter = require('./routes/users')
 
 const app = express()
 

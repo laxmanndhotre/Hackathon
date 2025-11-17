@@ -49,3 +49,5 @@ router.post('/signup', (req, res)=>{
             res.send(result.createResult(err))
     })
 })
+
+module.exports = router
